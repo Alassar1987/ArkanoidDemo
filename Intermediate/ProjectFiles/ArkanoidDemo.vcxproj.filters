@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\ArkanoidDemo.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ArkanoidDemo.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ArkanoidDemoEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\ArkanoidDemo">
+      <UniqueIdentifier>{714BC3C4-A5C2-3CEE-8221-88502A041CDA}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ArkanoidDemo\ArkanoidDemo.Build.cs">
+      <Filter>Source\ArkanoidDemo</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\ArkanoidDemo\ArkanoidDemo.cpp">
+      <Filter>Source\ArkanoidDemo</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArkanoidDemo\ArkanoidDemo.h">
+      <Filter>Source\ArkanoidDemo</Filter>
+    </ClInclude>
+    <Filter Include="Source\ArkanoidDemo\Private">
+      <UniqueIdentifier>{FB450935-619A-3AC7-92A2-69D558F88008}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ArkanoidDemo\Private\BlockBase.cpp">
+      <Filter>Source\ArkanoidDemo\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ArkanoidDemo\Private\BlockLayoutController.cpp">
+      <Filter>Source\ArkanoidDemo\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\ArkanoidDemo\Public">
+      <UniqueIdentifier>{1B39A20F-EE9F-34CE-BC77-F4F978141279}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ArkanoidDemo\Public\BlockBase.h">
+      <Filter>Source\ArkanoidDemo\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ArkanoidDemo\Public\BlockLayoutController.h">
+      <Filter>Source\ArkanoidDemo\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

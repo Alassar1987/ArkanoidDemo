@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ArkanoidDemo",
+			"Path": "..\\Source\\ArkanoidDemo.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ArkanoidDemoEditor",
+			"Path": "..\\Source\\ArkanoidDemoEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
