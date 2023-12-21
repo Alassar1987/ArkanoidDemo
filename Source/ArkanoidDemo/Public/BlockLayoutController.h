@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "BlockBase.h"
 #include "BlockLayoutController.generated.h"
 
 // Enum declaration
@@ -76,8 +77,6 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Layout Settings")
 	int32 BlocksQuantity;
 
-
-
 		
 protected:
 	// Called when the game starts or when spawned
@@ -86,5 +85,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UBlockBase* BlockBase;
 
 };
