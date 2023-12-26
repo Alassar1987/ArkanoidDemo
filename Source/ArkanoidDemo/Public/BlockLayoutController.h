@@ -30,6 +30,10 @@ class ARKANOIDDEMO_API ABlockLayoutController : public AActor
 public:
 
 	ABlockLayoutController();
+
+	/** Please add a function description */
+	UFUNCTION(BlueprintCallable)
+	void AddBlock();
 	
 	/** Please add a function description */
 	UFUNCTION(BlueprintCallable)
@@ -48,13 +52,20 @@ public:
 	void SelfDestruct();
 
 
-
 	//SomeDesctription
-	UPROPERTY(Blueprintable,EditAnywhere,Category ="BlockPropertie")
+	UPROPERTY(Blueprintable)
+	UStaticMesh* BlockMesh;
+	
+	//SomeDesctription
+	UPROPERTY(Blueprintable)
+	UBlockBase* Block;
+	
+	//SomeDesctription
+	UPROPERTY(Blueprintable,EditAnywhere,Category ="BlockProperties")
 	EBlockType BlockType;
 	
 	//SomeDesctription
-	UPROPERTY(BlueprintReadWrite,EditDefaultsOnly, Category ="BlockPropertie")
+	UPROPERTY(Blueprintable,EditAnywhere, Category ="BlockProperties")
 	EBlockSize BlockSize;
 	
 	/** Please add a variable description */
@@ -82,7 +93,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
+
+	
+	//Construction Script
+	virtual void OnConstruction(const FTransform& Transform) override;
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
