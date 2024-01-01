@@ -3,6 +3,7 @@
 
 #include "BlockLayoutController.h"
 
+#include "Math/TransformCalculus3D.h"
 
 
 // Sets default values
@@ -44,7 +45,7 @@ void ABlockLayoutController::AddBlock()
 	Block->SetRelativeLocation(FVector(0.0f,0.0f,0.0f));
 	Block->SetRelativeRotation(FQuat::Identity);
 	Block->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
-
+//FTransform Transform1(FVector(0.0f,0.0f,0.0f), FRotator(0.0f,0.0f,0.0f), FVector(1.0f,1.0f,1.0f));
 	switch (BlockSize)
 		{
 		case EBlockSize::Option1:
@@ -125,4 +126,3 @@ void ABlockLayoutController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
