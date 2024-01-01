@@ -1870,3 +1870,212 @@ Any materials which use this function will lose their connections to these funct
 [2024.01.01-01.31.34:557][534]LogFileHelpers: InternalPromptForCheckoutAndSave took 138 ms (total: 2.35 sec)
 [2024.01.01-01.31.34:558][534]AssetCheck: New page: Asset Save: TestLevel
 [2024.01.01-01.31.34:558][534]LogContentValidation: Display: Validating /Script/Engine.World /Game/Maps/TestLevel.TestLevel
+[2024.01.01-01.41.34:285][440]LogUObjectHash: Compacting FUObjectHashTables data took   1.68ms
+[2024.01.01-01.41.34:287][440]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Maps/TestLevel' took 0.011
+[2024.01.01-01.41.34:287][440]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges] ([1] browsable assets)...
+[2024.01.01-01.41.34:415][440]OBJ SavePackage:     Rendered thumbnail for [MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges]
+[2024.01.01-01.41.34:415][440]OBJ SavePackage: Finished generating thumbnails for package [/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges]
+[2024.01.01-01.41.34:420][440]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges_Auto4
+[2024.01.01-01.41.34:420][440]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdges_Auto40A92788B4D03AB517E2057977A9B4C45.tmp' to 'H:/Demo/ArkanoidDemo/Saved/Autosaves/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges_Auto4.uasset'
+[2024.01.01-01.41.34:422][440]LogFileHelpers: Auto-saving content packages took 0.135
+[2024.01.01-01.42.34:421][621]LogWindowsTextInputMethodSystem: Activated input method: Русский (Россия) - (Keyboard).
+[2024.01.01-01.42.34:421][621]LogWindowsTextInputMethodSystem: Activated input method: Русский (Россия) - (Keyboard).
+[2024.01.01-01.42.51:384][843]LogWindowsTextInputMethodSystem: Activated input method: Английский (США) - (Keyboard).
+[2024.01.01-01.42.51:384][843]LogWindowsTextInputMethodSystem: Activated input method: Английский (США) - (Keyboard).
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: ================================================
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Total job queries 639, among them cache hits 525 (82.16%)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Tracking 114 distinct input hashes that result in 59 distinct outputs (51.75%)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: RAM used: 2,09 MiB of 1,60 GiB budget. Usage: 0.13%
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Shaders Compiled: 80
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Jobs assigned 80, completed 80 (100%)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Average time worker was idle: 99.79 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Time job spent in pending queue: average 0.06 s, longest 0.18 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Job execution time: average 0.85 s, max 1.33 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Job life time (pending + execution): average 0.91 s, max 1.44
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Shader code size: average 31,096 KiB, min 4,156 KiB, max 40,609 KiB
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 20.19 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Jobs were issued in 80 batches (only local compilation was used), average 1.00 jobs/batch
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Average processing rate: 3.96 jobs/sec
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Total thread time: 41,099 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Total thread preprocess time: 3,913 s
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Percentage time preprocessing: 9.52%
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Effective parallelization: 2.04 (times faster than compiling all shaders on one thread). Compare with number of workers: 8
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled   15 times, average 0.64 sec, max 0.77 sec, min 0.57 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                             FDebugViewModePS (compiled    7 times, average 0.62 sec, max 0.71 sec, min 0.54 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy (compiled   15 times, average 0.61 sec, max 0.82 sec, min 0.50 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                             FDebugViewModeVS (compiled    7 times, average 0.61 sec, max 0.73 sec, min 0.49 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                       FPostProcessMaterialPS (compiled    9 times, average 0.58 sec, max 0.65 sec, min 0.48 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 23.29% of total time (compiled   15 times, average 0.64 sec, max 0.77 sec, min 0.57 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy - 22.20% of total time (compiled   15 times, average 0.61 sec, max 0.82 sec, min 0.50 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                       FPostProcessMaterialPS - 12.60% of total time (compiled    9 times, average 0.58 sec, max 0.65 sec, min 0.48 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                                 FLumenCardVS - 12.08% of total time (compiled    9 times, average 0.55 sec, max 0.64 sec, min 0.42 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display:                                             FDebugViewModePS - 10.54% of total time (compiled    7 times, average 0.62 sec, max 0.71 sec, min 0.54 sec)
+[2024.01.01-01.42.58:152][597]LogShaderCompilers: Display: ================================================
+[2024.01.01-01.43.05:319][276]LogMaterialEditor: Applying material MF_DTM_GazingAngle
+[2024.01.01-01.43.05:440][276]MaterialEditorStats: Texture samplers: 0/16
+[2024.01.01-01.43.05:440][276]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.05:440][276]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.05:440][276]MaterialEditorStats: Shader Count: 0
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: Base pass shader without light map: 79 instructions
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: Base pass vertex shader: 137 instructions
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: Texture samplers: 2/16
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.05:456][277]MaterialEditorStats: Shader Count: 5
+[2024.01.01-01.43.28:352][501]LogMaterialEditor: Applying material MF_DTM_GazingAngle
+[2024.01.01-01.43.28:473][501]MaterialEditorStats: Texture samplers: 0/16
+[2024.01.01-01.43.28:473][501]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.28:473][501]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.28:473][501]MaterialEditorStats: Shader Count: 0
+[2024.01.01-01.43.28:496][502]MaterialEditorStats: Base pass shader without light map: 79 instructions
+[2024.01.01-01.43.28:497][502]MaterialEditorStats: Base pass vertex shader: 137 instructions
+[2024.01.01-01.43.28:497][502]MaterialEditorStats: Texture samplers: 2/16
+[2024.01.01-01.43.28:497][502]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.28:497][502]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.28:497][502]MaterialEditorStats: Shader Count: 5
+[2024.01.01-01.43.50:651][623]LogMaterialEditor: Applying material MF_DTM_GazingAngle
+[2024.01.01-01.43.50:770][623]MaterialEditorStats: Texture samplers: 0/16
+[2024.01.01-01.43.50:770][623]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.50:770][623]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.50:770][623]MaterialEditorStats: Shader Count: 0
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: Base pass shader without light map: 79 instructions
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: Base pass vertex shader: 137 instructions
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: Texture samplers: 2/16
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.43.50:792][624]MaterialEditorStats: Shader Count: 5
+[2024.01.01-01.45.31:748][413]LogAssetEditorSubsystem: Opening Asset editor for MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges
+[2024.01.01-01.45.31:752][413]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.01.01-01.45.31:752][413]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.01.01-01.45.32:027][413]LogViewport: Scene viewport resized to 1335x894, mode Windowed.
+[2024.01.01-01.45.41:934][448]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.01.01-01.45.42:074][448]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges" FILE="H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset" SILENT=true
+[2024.01.01-01.45.42:080][448]LogUObjectHash: Compacting FUObjectHashTables data took   0.70ms
+[2024.01.01-01.45.42:088][448]LogUObjectHash: Compacting FUObjectHashTables data took   0.52ms
+[2024.01.01-01.45.42:095][448]LogSavePackage: Moving output files for package: /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges
+[2024.01.01-01.45.42:097][448]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdges385DD65E46168671C7A9A59D82323880.tmp' to 'H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset'
+[2024.01.01-01.45.42:116][448]LogFileHelpers: InternalPromptForCheckoutAndSave took 181 ms (total: 2.53 sec)
+[2024.01.01-01.45.42:119][448]AssetCheck: New page: Asset Save: PPI_OutlineEdges
+[2024.01.01-01.45.42:119][448]LogContentValidation: Display: Validating /Script/Engine.MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges
+[2024.01.01-01.46.01:594][212]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.01.01-01.46.01:762][212]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges" FILE="H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset" SILENT=true
+[2024.01.01-01.46.01:768][212]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2024.01.01-01.46.01:773][212]LogUObjectHash: Compacting FUObjectHashTables data took   0.53ms
+[2024.01.01-01.46.01:780][212]LogSavePackage: Moving output files for package: /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges
+[2024.01.01-01.46.01:781][212]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdges293DAC154E5D5B78AE3F0E9F70408013.tmp' to 'H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset'
+[2024.01.01-01.46.01:793][212]LogFileHelpers: InternalPromptForCheckoutAndSave took 198 ms (total: 2.73 sec)
+[2024.01.01-01.46.01:794][212]AssetCheck: New page: Asset Save: PPI_OutlineEdges
+[2024.01.01-01.46.01:794][212]LogContentValidation: Display: Validating /Script/Engine.MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges
+[2024.01.01-01.46.21:339][  2]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.01.01-01.46.21:497][  2]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges" FILE="H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset" SILENT=true
+[2024.01.01-01.46.21:504][  2]LogUObjectHash: Compacting FUObjectHashTables data took   0.51ms
+[2024.01.01-01.46.21:510][  2]LogUObjectHash: Compacting FUObjectHashTables data took   0.36ms
+[2024.01.01-01.46.21:515][  2]LogSavePackage: Moving output files for package: /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges
+[2024.01.01-01.46.21:516][  2]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdgesB18D70CB438B07F5F4228BBBAE468849.tmp' to 'H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset'
+[2024.01.01-01.46.21:528][  2]LogFileHelpers: InternalPromptForCheckoutAndSave took 188 ms (total: 2.92 sec)
+[2024.01.01-01.46.21:531][  2]AssetCheck: New page: Asset Save: PPI_OutlineEdges
+[2024.01.01-01.46.21:532][  2]LogContentValidation: Display: Validating /Script/Engine.MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges
+[2024.01.01-01.46.50:523][578]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.01.01-01.46.50:693][578]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges" FILE="H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset" SILENT=true
+[2024.01.01-01.46.50:700][578]LogUObjectHash: Compacting FUObjectHashTables data took   0.52ms
+[2024.01.01-01.46.50:706][578]LogUObjectHash: Compacting FUObjectHashTables data took   0.47ms
+[2024.01.01-01.46.50:711][578]LogSavePackage: Moving output files for package: /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges
+[2024.01.01-01.46.50:712][578]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdgesC4CE784A4DB11B15CD1B6FA86E027D3A.tmp' to 'H:/Demo/ArkanoidDemo/Content/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.uasset'
+[2024.01.01-01.46.50:729][578]LogFileHelpers: InternalPromptForCheckoutAndSave took 205 ms (total: 3.12 sec)
+[2024.01.01-01.46.50:735][578]AssetCheck: New page: Asset Save: PPI_OutlineEdges
+[2024.01.01-01.46.50:735][578]LogContentValidation: Display: Validating /Script/Engine.MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges
+[2024.01.01-01.47.07:944][187]LogEditorViewport: Clicking Background
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: ================================================
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Total job queries 760, among them cache hits 636 (83.68%)
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Tracking 124 distinct input hashes that result in 64 distinct outputs (51.61%)
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: RAM used: 2,27 MiB of 1,60 GiB budget. Usage: 0.14%
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Shaders Compiled: 90
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Jobs assigned 90, completed 90 (100%)
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Average time worker was idle: 204.99 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Time job spent in pending queue: average 0.06 s, longest 0.18 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Job execution time: average 0.85 s, max 1.33 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Job life time (pending + execution): average 0.91 s, max 1.44
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Shader code size: average 31,136 KiB, min 4,156 KiB, max 40,609 KiB
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 22.63 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Jobs were issued in 90 batches (only local compilation was used), average 1.00 jobs/batch
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Average processing rate: 3.98 jobs/sec
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Total thread time: 46,627 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Total thread preprocess time: 4,39 s
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Percentage time preprocessing: 9.41%
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Effective parallelization: 2.06 (times faster than compiling all shaders on one thread). Compare with number of workers: 8
+[2024.01.01-01.47.37:484][263]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled   17 times, average 0.64 sec, max 0.77 sec, min 0.57 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                             FDebugViewModePS (compiled    8 times, average 0.63 sec, max 0.71 sec, min 0.54 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy (compiled   17 times, average 0.61 sec, max 0.82 sec, min 0.50 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                             FDebugViewModeVS (compiled    8 times, average 0.61 sec, max 0.73 sec, min 0.49 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                       FPostProcessMaterialPS (compiled   10 times, average 0.58 sec, max 0.65 sec, min 0.48 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 23.40% of total time (compiled   17 times, average 0.64 sec, max 0.77 sec, min 0.57 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy - 22.36% of total time (compiled   17 times, average 0.61 sec, max 0.82 sec, min 0.50 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                       FPostProcessMaterialPS - 12.50% of total time (compiled   10 times, average 0.58 sec, max 0.65 sec, min 0.48 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                                 FLumenCardVS - 11.84% of total time (compiled   10 times, average 0.55 sec, max 0.64 sec, min 0.42 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display:                                             FDebugViewModePS - 10.81% of total time (compiled    8 times, average 0.63 sec, max 0.71 sec, min 0.54 sec)
+[2024.01.01-01.47.37:485][263]LogShaderCompilers: Display: ================================================
+[2024.01.01-01.47.39:207][416]LogMaterialEditor: Applying material MF_DTM_GazingAngle
+[2024.01.01-01.47.39:480][416]MaterialEditorStats: Texture samplers: 0/16
+[2024.01.01-01.47.39:480][416]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.47.39:480][416]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.47.39:480][416]MaterialEditorStats: Shader Count: 0
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: Base pass shader without light map: 79 instructions
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: Base pass vertex shader: 137 instructions
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: Texture samplers: 2/16
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: Texture Lookups (Est.): VS(3), PS(11)
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
+[2024.01.01-01.47.39:578][417]MaterialEditorStats: Shader Count: 5
+[2024.01.01-01.48.23:522][523]LogDerivedDataCache: C:/Users/serge/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:05.258 and deleted 0 files with total size 0 MiB and 97 empty folders. Scanned 2937 files in 4171 folders with total size 126 MiB.
+[2024.01.01-01.50.25:862][270]LogViewport: Scene viewport resized to 1332x917, mode Windowed.
+[2024.01.01-01.50.26:020][272]LogViewport: Scene viewport resized to 548x315, mode Windowed.
+[2024.01.01-01.50.28:885][452]LogViewport: Scene viewport resized to 551x326, mode Windowed.
+[2024.01.01-01.50.39:760][ 87]LogViewport: Scene viewport resized to 549x326, mode Windowed.
+[2024.01.01-01.50.39:781][ 88]LogViewport: Scene viewport resized to 548x326, mode Windowed.
+[2024.01.01-01.50.39:876][ 89]LogViewport: Scene viewport resized to 506x326, mode Windowed.
+[2024.01.01-01.50.39:901][ 90]LogViewport: Scene viewport resized to 488x326, mode Windowed.
+[2024.01.01-01.50.39:965][ 91]LogViewport: Scene viewport resized to 448x326, mode Windowed.
+[2024.01.01-01.50.39:989][ 92]LogViewport: Scene viewport resized to 441x326, mode Windowed.
+[2024.01.01-01.50.40:047][ 93]LogViewport: Scene viewport resized to 421x326, mode Windowed.
+[2024.01.01-01.50.40:069][ 94]LogViewport: Scene viewport resized to 411x326, mode Windowed.
+[2024.01.01-01.50.40:095][ 95]LogViewport: Scene viewport resized to 401x326, mode Windowed.
+[2024.01.01-01.50.40:119][ 96]LogViewport: Scene viewport resized to 399x326, mode Windowed.
+[2024.01.01-01.50.41:575][250]LogViewport: Scene viewport resized to 397x326, mode Windowed.
+[2024.01.01-01.50.41:700][252]LogViewport: Scene viewport resized to 389x326, mode Windowed.
+[2024.01.01-01.54.18:450][661]LogUObjectHash: Compacting FUObjectHashTables data took   0.75ms
+[2024.01.01-01.54.18:457][661]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Maps/TestLevel' took 0.013
+[2024.01.01-01.54.18:458][661]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges] ([1] browsable assets)...
+[2024.01.01-01.54.18:571][661]OBJ SavePackage:     Rendered thumbnail for [MaterialInstanceConstant /Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges.PPI_OutlineEdges]
+[2024.01.01-01.54.18:571][661]OBJ SavePackage: Finished generating thumbnails for package [/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges]
+[2024.01.01-01.54.18:575][661]LogUObjectHash: Compacting FUObjectHashTables data took   0.35ms
+[2024.01.01-01.54.18:580][661]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2024.01.01-01.54.18:585][661]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges_Auto5
+[2024.01.01-01.54.18:585][661]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/PPI_OutlineEdges_Auto59DEF239347BBEA05CD8D5BAF06290102.tmp' to 'H:/Demo/ArkanoidDemo/Saved/Autosaves/Game/Assets/2D/Materials/ToonShading/PPI_OutlineEdges_Auto5.uasset'
+[2024.01.01-01.54.18:590][661]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Assets/2D/Materials/ToonShading/Functions/MF_DTM_GazingAngle] ([1] browsable assets)...
+[2024.01.01-01.54.18:590][661]OBJ SavePackage: Finished generating thumbnails for package [/Game/Assets/2D/Materials/ToonShading/Functions/MF_DTM_GazingAngle]
+[2024.01.01-01.54.18:593][661]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Assets/2D/Materials/ToonShading/Functions/MF_DTM_GazingAngle_Auto5
+[2024.01.01-01.54.18:593][661]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/MF_DTM_GazingAngle_Auto537BDC31343227813AE3361A87513531F.tmp' to 'H:/Demo/ArkanoidDemo/Saved/Autosaves/Game/Assets/2D/Materials/ToonShading/Functions/MF_DTM_GazingAngle_Auto5.uasset'
+[2024.01.01-01.54.18:595][661]LogFileHelpers: Auto-saving content packages took 0.138
+[2024.01.01-01.56.38:896][459]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.01.01-01.56.38:965][459]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/TestLevel" FILE="H:/Demo/ArkanoidDemo/Content/Maps/TestLevel.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2024.01.01-01.56.39:006][459]LogUObjectHash: Compacting FUObjectHashTables data took   0.37ms
+[2024.01.01-01.56.39:016][459]LogSavePackage: Moving output files for package: /Game/Maps/TestLevel
+[2024.01.01-01.56.39:017][459]LogSavePackage: Moving 'H:/Demo/ArkanoidDemo/Saved/TestLevel0F942F8B4CF08A689B6BDFB05D74ABB7.tmp' to 'H:/Demo/ArkanoidDemo/Content/Maps/TestLevel.umap'
+[2024.01.01-01.56.39:029][459]LogFileHelpers: All files are already saved.
+[2024.01.01-01.56.39:029][459]LogFileHelpers: Saving map 'TestLevel' took 0.065
+[2024.01.01-01.56.39:040][459]LogFileHelpers: InternalPromptForCheckoutAndSave took 143 ms (total: 3.27 sec)
+[2024.01.01-01.56.39:041][459]AssetCheck: New page: Asset Save: TestLevel
+[2024.01.01-01.56.39:041][459]LogContentValidation: Display: Validating /Script/Engine.World /Game/Maps/TestLevel.TestLevel
+[2024.01.01-01.56.40:481][562]LogSlate: Window 'PPI_OutlineEdges' being destroyed
+[2024.01.01-01.56.40:491][562]LogSlate: Window 'PPI_OutlineEdges' being destroyed
+[2024.01.01-01.56.40:504][562]LogUObjectHash: Compacting FUObjectHashTables data took   1.38ms
+[2024.01.01-01.56.40:572][562]LogUObjectHash: Compacting FUObjectHashTables data took   0.45ms
+[2024.01.01-01.56.40:608][562]LogWorld: UWorld::CleanupWorld for World_7, bSessionEnded=true, bCleanupResources=true
+[2024.01.01-01.56.40:608][562]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
