@@ -13,17 +13,16 @@ ABlockLayoutController::ABlockLayoutController()
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 
-	
 	Block = nullptr;
 	BlockMesh = nullptr;
 	BlockType = EBlockType::Option1;
-	BlockSize = EBlockSize::Option1;
+	ShapeSelector = EShapeSelector::Option1;
 	Columns = 1;
 	Raws = 1;
 	GAP = FVector(15.0f,0.0f,15.0f);
 	BlockBounds = FVector(0.0f,0.0f,0.0f);
 	BlocksQuantity = 0;
-	
+    	
 }
 
 	
@@ -31,35 +30,11 @@ void ABlockLayoutController::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
 	
-	AddBlock();
-	
+	AddBlock();		
 }
 
-/** Please add a function description */
-void ABlockLayoutController::AddBlock()
+void ABlockLayoutController::SetBlock()
 {
-	
-	//Block = CreateDefaultSubobject<UBlockBase>(TEXT("Block"));
-	Block = NewObject<UBlockBase>(this, TEXT("MyStaticMeshComponent"));
-	Block->SetupAttachment(RootComponent);
-	Block->SetRelativeLocation(FVector(0.0f,0.0f,0.0f));
-	Block->SetRelativeRotation(FQuat::Identity);
-	Block->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
-//FTransform Transform1(FVector(0.0f,0.0f,0.0f), FRotator(0.0f,0.0f,0.0f), FVector(1.0f,1.0f,1.0f));
-	switch (BlockSize)
-		{
-		case EBlockSize::Option1:
-			BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/c_100.c_100")));
-			//BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/c_100.c_100'")));
-			//static ConstructorHelpers::FObjectFinder<UStaticMesh> Mesh(TEXT("/Game/Assets/Meshes/c_100.c_100"));
-			break;
-		case EBlockSize::Option2:
-			BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/p_200_100_100.p_200_100_100")));
-			//BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/p_200_100_100.p_200_100_100'")));
-			//static ConstructorHelpers::FObjectFinder<UStaticMesh> Mesh(TEXT("/Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
-			break;
-		}
-	
 	if(BlockMesh)
 	{
 		Block->SetStaticMesh(BlockMesh);
@@ -70,8 +45,63 @@ void ABlockLayoutController::AddBlock()
 		UE_LOG(LogTemp, Error, TEXT("Failed to initialize BlockMesh!"));
 
 	}
+}
 
+/** Please add a function description */
+void ABlockLayoutController::AddBlock()
+{
+	
+	Block = NewObject<UBlockBase>(this, TEXT("MyStaticMeshComponent"));
+	Block->SetupAttachment(RootComponent);
+	Block->SetRelativeLocation(FVector(0.0f,0.0f,0.0f));
+	Block->SetRelativeRotation(FQuat::Identity);
+	Block->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
+
+	if (ShapeSelector != EShapeSelector::Option3)
+	{
+		SwitchMesh();
+	}
+	SetBlock();
+	
 	Block->RegisterComponent();
+	
+}
+/** Please add a function description */
+void ABlockLayoutController::SwitchMesh()
+{
+	switch (ShapeSelector)
+	{
+	case EShapeSelector::Option1:
+		BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/c_100.c_100")));
+		if (!BlockMesh)
+		{
+			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/c_100.c_100"));
+		}
+		break;
+	case EShapeSelector::Option2:
+		BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/p_200_100_100.p_200_100_100")));
+		if (!BlockMesh)
+		{
+			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
+		}
+		break;
+	case EShapeSelector::Option3:
+		if (!BlockMesh)
+		{
+			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
+		}
+		break;
+		
+	}
+	if (BlockMesh)
+	{
+		Block->SetStaticMesh(BlockMesh);
+	}
+
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load BlockMesh: Block is NullPtr"))
+	}
 	
 }
 

@@ -30,7 +30,7 @@ public:
 	 * Editable in Blueprints and defaults to true.
 	 */
 	UPROPERTY(BlueprintReadWrite,EditDefaultsOnly, Category ="Block Structure")
-	bool IsDestroyable;
+	bool bIsDestroyable;
 
 	/** 
 	 * The health of the block.
