@@ -8,11 +8,13 @@
 #include "BlockLayoutController.generated.h"
 
 // Enum declaration
+
 UENUM(BlueprintType)
 enum class EBlockType : uint8
 {
-	Option1 UMETA(DisplayName = "Destructible"),
-	Option2 UMETA(DisplayName = "Indestructible")	
+	Option1 UMETA(DisplayName = "Indestructible"),
+	Option2 UMETA(DisplayName = "Destructible-1HP"),
+	Option3 UMETA(DisplayName = "Destructible-2HP")
 };
 
 UENUM(BlueprintType)
@@ -32,21 +34,26 @@ public:
 
 	ABlockLayoutController();
 
-	//FUNCTIONS SECTION
+	// --FUNCTIONS SECTION--
 	/** Please add a function description */
 	UFUNCTION(BlueprintCallable)
-	void AddBlock();
+	void LayoutSquare();
 
+	
 	UFUNCTION(Blueprintable)
-	void SetBlock();
-
+	void BlockConfig(UBlockBase* TargetBlock);
+	
 	UFUNCTION(BlueprintCallable)
-	void SwitchMesh();
+	UBlockBase* PlaceBlock(FVector BlockPosition = FVector(0.0f,0.0f,0.0f));
+	
+	// /** Please add a function description */
+	// UFUNCTION(Blueprintable)
+	// void SetBlockMesh(UBlockBase* TargetBlock);
 	
 	/** Please add a function description */
 	UFUNCTION(BlueprintCallable)
-	void LayoutCube();
-
+	void SwitchMesh(UBlockBase* TargetBlock);
+	
 	/** Please add a function description */
 	UFUNCTION(BlueprintCallable)
 	void AddBlocksQuantity();
@@ -59,31 +66,22 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SelfDestruct();
 	
-	//PROPERTIES SECTION
-
-	//SomeDesctription
+	// --PROPERTIES SECTION--
 	UPROPERTY(Blueprintable,EditAnywhere, Category= "BlockShape")
 	EShapeSelector ShapeSelector;
 
 	//SomeDesctription
 	UPROPERTY(Blueprintable,EditAnywhere, Category= "BlockShape", meta=(EditCondition = "ShapeSelector == EShapeSelector::Option3",EditConditionHides))
 	UStaticMesh* BlockMesh;
-	
-	//SomeDesctription
-	UPROPERTY(Blueprintable,EditAnywhere,Category ="BlockProperties")
-	bool ManualBlockTypeSelection;
-	
+
+		
 	//SomeDesctription
 	UPROPERTY(Blueprintable,EditAnywhere,Category ="BlockProperties")
 	EBlockType BlockType;
 	
-	
-	
-	
-	
-	//SomeDesctription
-	UPROPERTY(Blueprintable)
-	UBlockBase* Block;
+	// //SomeDesctription
+	//  UPROPERTY(Blueprintable)
+	//  UBlockBase* Block = nullptr;
 		
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="LayoutSettings", meta=(UIMin="1", UIMax="100", ClampMin="1", ClampMax="100"))
@@ -98,7 +96,7 @@ public:
 	FVector GAP;
 
 	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="BlockBounds")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="BlockShape",meta=(EditCondition = "ShapeSelector == EShapeSelector::Option3",EditConditionHides))
 	FVector BlockBounds;
 
 	/** Please add a variable description */
@@ -118,9 +116,12 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
 private:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components", meta = (AllowPrivateAccess = "true"))
-	UBlockBase* BlockBase;
+	UBlockBase* BlockBase = nullptr;
+	UMaterialInstance* IndestructableMaterial = nullptr;
+	UMaterialInstance* OneHPMaterial = nullptr;
+	UMaterialInstance* TwoHPMaterial = nullptr;
 
 };

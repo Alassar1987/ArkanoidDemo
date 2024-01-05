@@ -3,12 +3,13 @@
 
 #include "BlockBase.h"
 
+
 // Default constructor for UBlockBase.
 UBlockBase::UBlockBase()
 {
 	// Initialize default values.
 	bIsDestroyable = true;
-	Size = FVector(100.0f,100.0f,100.0f);
+	Size = FVector(0.0f,0.0f,0.0f);
 	Health = 1;
 }
 
@@ -21,6 +22,9 @@ void UBlockBase::SubtractHealth(int32 Damage)
 	}
 	
 }
+
+
+
 
 
 

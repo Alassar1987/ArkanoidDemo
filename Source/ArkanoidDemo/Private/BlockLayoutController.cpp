@@ -3,9 +3,6 @@
 
 #include "BlockLayoutController.h"
 
-#include "Math/TransformCalculus3D.h"
-
-
 // Sets default values
 ABlockLayoutController::ABlockLayoutController()
 {
@@ -13,7 +10,7 @@ ABlockLayoutController::ABlockLayoutController()
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 
-	Block = nullptr;
+	//Block = nullptr;
 	BlockMesh = nullptr;
 	BlockType = EBlockType::Option1;
 	ShapeSelector = EShapeSelector::Option1;
@@ -22,7 +19,10 @@ ABlockLayoutController::ABlockLayoutController()
 	GAP = FVector(15.0f,0.0f,15.0f);
 	BlockBounds = FVector(0.0f,0.0f,0.0f);
 	BlocksQuantity = 0;
-    	
+
+	IndestructableMaterial = Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_White.MI_White'")));
+    OneHPMaterial =  Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_Blue.MI_Blue'")));
+	TwoHPMaterial = Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_Yellow.MI_Yellow'")));
 }
 
 	
@@ -30,95 +30,187 @@ void ABlockLayoutController::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
 	
-	AddBlock();		
+	PlaceBlock();
+	
 }
 
-void ABlockLayoutController::SetBlock()
+void ABlockLayoutController::BlockConfig(UBlockBase* TargetBlock)
 {
-	if(BlockMesh)
+	UMaterialInstance* BlockMaterial;
+	switch(BlockType)
 	{
-		Block->SetStaticMesh(BlockMesh);
-		UE_LOG(LogTemp, Warning, TEXT("BlockMesh initialized successfully!"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to initialize BlockMesh!"));
+		
+		//Block is Indestructable
+	case EBlockType::Option1:
+		if (TargetBlock)
+		{
+			TargetBlock->bIsDestroyable = false;
+			TargetBlock->Health = 0;
+			BlockMaterial = IndestructableMaterial;
+			if(BlockMaterial)
+			{
+				TargetBlock->SetMaterial(0,BlockMaterial);
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Failed to initialize Material Instance!"));
+			}
+						
+		}
+		
+		break;
+		//Block is Destructible-1HP
+	case EBlockType::Option2:
+		if(TargetBlock)
+		{
+			TargetBlock->bIsDestroyable = true;
+			TargetBlock->Health = 1;
 
+			BlockMaterial = OneHPMaterial;
+			if(BlockMaterial)
+			{
+				TargetBlock->SetMaterial(0,BlockMaterial);
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Failed to initialize Material Instance!"));
+			}
+		}
+		break;
+		
+		//Block is Destructible-2HP
+	case EBlockType::Option3:
+		if(TargetBlock)
+		{
+			TargetBlock->bIsDestroyable = true;
+			TargetBlock->Health = 2;
+			
+			BlockMaterial = TwoHPMaterial;
+			if(BlockMaterial)
+			{
+				TargetBlock->SetMaterial(0,BlockMaterial);
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Failed to initialize Material Instance!"));
+			}
+		}
+		break;
 	}
 }
 
 /** Please add a function description */
-void ABlockLayoutController::AddBlock()
+UBlockBase* ABlockLayoutController::PlaceBlock(FVector const BlockPosition)
 {
-	
-	Block = NewObject<UBlockBase>(this, TEXT("MyStaticMeshComponent"));
-	Block->SetupAttachment(RootComponent);
-	Block->SetRelativeLocation(FVector(0.0f,0.0f,0.0f));
-	Block->SetRelativeRotation(FQuat::Identity);
-	Block->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
+	UBlockBase* NewBlock = NewObject<UBlockBase>(this, TEXT("Block"));
 
-	if (ShapeSelector != EShapeSelector::Option3)
-	{
-		SwitchMesh();
-	}
-	SetBlock();
+	NewBlock->SetupAttachment(RootComponent);
+	NewBlock->SetRelativeLocation(BlockPosition);
+	NewBlock->SetRelativeRotation(FQuat::Identity);
+	NewBlock->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
+	NewBlock->RegisterComponent();
+		
+	SwitchMesh(NewBlock);
+	BlockConfig(NewBlock);
 	
-	Block->RegisterComponent();
+	return NewBlock;
 	
 }
+
 /** Please add a function description */
-void ABlockLayoutController::SwitchMesh()
+void ABlockLayoutController::SwitchMesh(UBlockBase* TargetBlock)
 {
+	UStaticMesh* LocalMesh = nullptr;
+	
 	switch (ShapeSelector)
 	{
 	case EShapeSelector::Option1:
-		BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/c_100.c_100")));
-		if (!BlockMesh)
+		LocalMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/c_100.c_100")));
+		
+		if (!LocalMesh)
 		{
 			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/c_100.c_100"));
 		}
-		break;
-	case EShapeSelector::Option2:
-		BlockMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/p_200_100_100.p_200_100_100")));
-		if (!BlockMesh)
+		else
 		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
+			if(LocalMesh)
+			{
+				TargetBlock->SetStaticMesh(LocalMesh);
+				
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Failed to initialize LocalMesh!"));
+
+			}
+			BlockBounds = FVector(100.0f,100.0f,100.0f);
+			//UE_LOG(LogTemp, Warning, TEXT("BlockBounds= %s "), *BlockBounds.ToString());
 		}
 		break;
+		
+	case EShapeSelector::Option2:
+		LocalMesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), nullptr, TEXT("/Game/Assets/Meshes/p_200_100_100.p_200_100_100")));
+		if (!LocalMesh)
+		{
+			//UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
+		}
+		else
+		{
+			if(LocalMesh)
+			{
+				TargetBlock->SetStaticMesh(LocalMesh);
+				//UE_LOG(LogTemp, Warning, TEXT("BlockMesh initialized successfully!"));
+			}
+			else
+			{
+				UE_LOG(LogTemp, Error, TEXT("Failed to initialize LocalMesh!"));
+				
+			}
+			BlockBounds = FVector(200.0f,100.0f,100.0f);
+			//UE_LOG(LogTemp, Warning, TEXT("BlockBounds= %s "), *BlockBounds.ToString());
+		}
+		break;
+		
 	case EShapeSelector::Option3:
 		if (!BlockMesh)
 		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to load mesh: /Game/Assets/Meshes/p_200_100_100.p_200_100_100"));
+			UE_LOG(LogTemp, Error, TEXT("Failed to load UPROPERTY BlockMesh"));
+		}
+		else
+		{
+			
+			LocalMesh = BlockMesh;
+			
 		}
 		break;
 		
 	}
-	if (BlockMesh)
+	if (LocalMesh)
 	{
-		Block->SetStaticMesh(BlockMesh);
+		TargetBlock->SetStaticMesh(LocalMesh);
 	}
 
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to load BlockMesh: Block is NullPtr"))
+		UE_LOG(LogTemp, Error, TEXT("Failed to load LocalMesh: Block is NullPtr"))
 	}
 	
 }
 
 
 /** Please add a function description */
-void ABlockLayoutController::LayoutCube()
+void ABlockLayoutController::LayoutSquare()
 {
-	//First Cycle
+	//Vertical Cycle
 	for (size_t i = 0; i < (Raws-1); i++)
 	{
-		;
+		//Horizontal Cycle
+		for (size_t j = 0; j < (Columns-1); i++)
+		{
+			PlaceBlock();
+		}
 	}
-
-	for (size_t i = 0; i < (Columns-1); i++)
-	{
-		;
-	}
+	
 	
 }
 

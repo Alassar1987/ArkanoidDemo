@@ -24,7 +24,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable)
 	void SubtractHealth(int32 Damage);
-
+	
 	/** 
 	 * Indicates whether the block can be destroyed.
 	 * Editable in Blueprints and defaults to true.
