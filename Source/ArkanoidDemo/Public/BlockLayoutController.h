@@ -79,10 +79,6 @@ public:
 	UPROPERTY(Blueprintable,EditAnywhere,Category ="BlockProperties")
 	EBlockType BlockType;
 	
-	// //SomeDesctription
-	//  UPROPERTY(Blueprintable)
-	//  UBlockBase* Block = nullptr;
-		
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="LayoutSettings", meta=(UIMin="1", UIMax="100", ClampMin="1", ClampMax="100"))
 	int32 Columns;
@@ -93,11 +89,11 @@ public:
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="LayoutSettings", meta=(UIMin="0", ClampMin="0", UIMax="1000", ClampMax="1000"))
-	FVector GAP;
+	FVector BlocksGap;
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="BlockShape",meta=(EditCondition = "ShapeSelector == EShapeSelector::Option3",EditConditionHides))
-	FVector BlockBounds;
+	FVector BlockBoundsSize;
 
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category="Layout Settings")
@@ -118,10 +114,14 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 private:
+
+	void ClearExistingBlocks();
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UBlockBase* BlockBase = nullptr;
+	TArray<UBlockBase*> BlocksArray;
 	UMaterialInstance* IndestructableMaterial = nullptr;
 	UMaterialInstance* OneHPMaterial = nullptr;
 	UMaterialInstance* TwoHPMaterial = nullptr;
+	
 
 };

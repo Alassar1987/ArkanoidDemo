@@ -10,19 +10,19 @@ ABlockLayoutController::ABlockLayoutController()
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 
-	//Block = nullptr;
 	BlockMesh = nullptr;
 	BlockType = EBlockType::Option1;
 	ShapeSelector = EShapeSelector::Option1;
 	Columns = 1;
 	Raws = 1;
-	GAP = FVector(15.0f,0.0f,15.0f);
-	BlockBounds = FVector(0.0f,0.0f,0.0f);
+	BlocksGap = FVector(15.0f,0.0f,15.0f);
+	BlockBoundsSize = FVector(0.0f,0.0f,0.0f);
 	BlocksQuantity = 0;
 
 	IndestructableMaterial = Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_White.MI_White'")));
     OneHPMaterial =  Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_Blue.MI_Blue'")));
 	TwoHPMaterial = Cast<UMaterialInstance>(StaticLoadObject(UMaterialInstance::StaticClass(), nullptr, TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/2D/Materials/Coloring/MI_Yellow.MI_Yellow'")));
+	UE_LOG(LogTemp, Warning, TEXT("ConstructionWorked"));
 }
 
 	
@@ -30,7 +30,11 @@ void ABlockLayoutController::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
 	
-	PlaceBlock();
+	//PlaceBlock(FVector(0.0f,0.0f,0.0f));
+	//PlaceBlock(FVector(115.0f,0.0f,0.0f));
+	//PlaceBlock(FVector(230.0f,0.0f,0.0f));
+	LayoutSquare();
+	UE_LOG(LogTemp, Warning, TEXT("OnConstruction"));
 	
 }
 
@@ -102,16 +106,20 @@ void ABlockLayoutController::BlockConfig(UBlockBase* TargetBlock)
 /** Please add a function description */
 UBlockBase* ABlockLayoutController::PlaceBlock(FVector const BlockPosition)
 {
-	UBlockBase* NewBlock = NewObject<UBlockBase>(this, TEXT("Block"));
+	UBlockBase* NewBlock = NewObject<UBlockBase>(this);
+	
+	//UBlockBase* NewBlock = CreateDefaultSubobject<UBlockBase>(TEXT("Block"));
 
+	SwitchMesh(NewBlock);
+	BlockConfig(NewBlock);
+	
 	NewBlock->SetupAttachment(RootComponent);
 	NewBlock->SetRelativeLocation(BlockPosition);
 	NewBlock->SetRelativeRotation(FQuat::Identity);
 	NewBlock->SetRelativeScale3D(FVector(1.0f,1.0f,1.0f));
 	NewBlock->RegisterComponent();
 		
-	SwitchMesh(NewBlock);
-	BlockConfig(NewBlock);
+	
 	
 	return NewBlock;
 	
@@ -143,7 +151,7 @@ void ABlockLayoutController::SwitchMesh(UBlockBase* TargetBlock)
 				UE_LOG(LogTemp, Error, TEXT("Failed to initialize LocalMesh!"));
 
 			}
-			BlockBounds = FVector(100.0f,100.0f,100.0f);
+			BlockBoundsSize = FVector(100.0f,100.0f,100.0f);
 			//UE_LOG(LogTemp, Warning, TEXT("BlockBounds= %s "), *BlockBounds.ToString());
 		}
 		break;
@@ -166,7 +174,7 @@ void ABlockLayoutController::SwitchMesh(UBlockBase* TargetBlock)
 				UE_LOG(LogTemp, Error, TEXT("Failed to initialize LocalMesh!"));
 				
 			}
-			BlockBounds = FVector(200.0f,100.0f,100.0f);
+			BlockBoundsSize = FVector(200.0f,100.0f,100.0f);
 			//UE_LOG(LogTemp, Warning, TEXT("BlockBounds= %s "), *BlockBounds.ToString());
 		}
 		break;
@@ -201,13 +209,29 @@ void ABlockLayoutController::SwitchMesh(UBlockBase* TargetBlock)
 /** Please add a function description */
 void ABlockLayoutController::LayoutSquare()
 {
+	float CoordinateX = 0.0f;
+	float CoordinateZ = 0.0f;
+	
+	
+	
+
+	UE_LOG(LogTemp, Warning, TEXT("PreCycle"));
+	
+	ClearExistingBlocks();
+	
 	//Vertical Cycle
-	for (size_t i = 0; i < (Raws-1); i++)
+	for (size_t i = 0; i < Raws; i++)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Entering Cycle 1"));
+		CoordinateZ = -1*(i*(BlocksGap.Z+BlockBoundsSize.Z)) ;
 		//Horizontal Cycle
-		for (size_t j = 0; j < (Columns-1); i++)
+		for (size_t j = 0; j < Columns; j++)
 		{
-			PlaceBlock();
+			CoordinateX = j*(BlocksGap.X + BlockBoundsSize.X);
+			UBlockBase* Block = PlaceBlock(FVector(CoordinateX,0.0f,CoordinateZ)); // 226 строка
+			BlocksArray.Add(Block);
+			//AddBlocksQuantity();
+			//UE_LOG(LogTemp, Warning, TEXT("Total Blocks: %d"),BlocksQuantity);
 		}
 	}
 	
@@ -233,6 +257,21 @@ void ABlockLayoutController::SelfDestruct()
 	{
 		Destroy();
 	}
+}
+
+void ABlockLayoutController::ClearExistingBlocks()
+{
+	// Iterate through existing blocks and destroy them
+	for (auto& Block : BlocksArray)
+	{
+		if (Block)
+		{
+			Block->DestroyComponent();
+		}
+	}
+
+	// Clear the array
+	BlocksArray.Empty();
 }
 
 // Called when the game starts or when spawned
