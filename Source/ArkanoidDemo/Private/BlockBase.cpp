@@ -8,7 +8,7 @@
 UBlockBase::UBlockBase()
 {
 	// Initialize default values.
-	bIsDestroyable = true;
+	bIsDestructable = true;
 	Size = FVector(0.0f,0.0f,0.0f);
 	Health = 1;
 }
@@ -16,9 +16,23 @@ UBlockBase::UBlockBase()
 // Function to subtract health from the block.
 void UBlockBase::SubtractHealth(int32 Damage)
 {
-	if(bIsDestroyable)
+	if(bIsDestructable)
 	{
 		Health = FMath::Max(Health-Damage, 0);
+	}
+	
+}
+
+// Function to subtract health from the block.
+void UBlockBase::SelfDestruct()
+{
+	if(bIsDestructable)
+	{
+		if	(Health <= 0)
+		{
+			DestroyComponent();
+		}
+			
 	}
 	
 }

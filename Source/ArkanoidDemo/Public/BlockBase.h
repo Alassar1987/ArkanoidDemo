@@ -24,13 +24,17 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable)
 	void SubtractHealth(int32 Damage);
+
+
+	UFUNCTION(BlueprintCallable)
+	void SelfDestruct();
 	
 	/** 
 	 * Indicates whether the block can be destroyed.
 	 * Editable in Blueprints and defaults to true.
 	 */
 	UPROPERTY(BlueprintReadWrite,EditDefaultsOnly, Category ="Block Structure")
-	bool bIsDestroyable;
+	bool bIsDestructable;
 
 	/** 
 	 * The health of the block.
